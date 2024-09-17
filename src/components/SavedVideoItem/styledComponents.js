@@ -40,7 +40,7 @@ export const VideoInfo = styled.div`
 export const Title = styled.p`
   color: ${props => (props.darkTheme ? 'white' : '#1e293b')};
   font-weight: bold;
-  font-size: 2rem;
+  font-size: 1.8rem;
 
   @media (min-width: 700px) and (max-width: 900px) {
     font-size: 1.4rem;
@@ -58,6 +58,7 @@ export const ViewsInfoContainer = styled.div`
 
   @media (max-width: 700px) {
     display: flex;
+    flex-direction: row;
     align-items: center;
     column-gap: 1.5rem;
   }

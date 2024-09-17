@@ -77,7 +77,7 @@ export const ViewsAndLikeContainer = styled.div`
 `
 
 export const ListContainer = styled.ul`
-  paddding-inline-start: 0;
+  padding-inline-start: 0;
   display: flex;
   align-items: center;
   column-gap: 1.5rem;
@@ -99,12 +99,12 @@ export const Name = styled.button`
     }
     return '#64748b'
   }}};
-    font-size:1.4rem;
-    font-weight:bold;
+  font-size:1.4rem;
+  font-weight:bold;
 
-    display:flex;
-    align-items:center;
-    column-gap:1rem;
+  display:flex;
+  align-items:center;
+  column-gap:1rem;
 
 `
 
@@ -173,7 +173,7 @@ export const Description = styled.p`
   margin-top: 2rem;
 
   @media (max-width: 500px) {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
   }
 `
 

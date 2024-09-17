@@ -38,7 +38,7 @@ export const TrendingIcon = styled(FaFire)`
 
 export const SectionHeading = styled.h1`
   color: ${props => (props.darkTheme ? 'white' : '#1e293b')};
-  font-size: 4rem;
+  font-size: 3rem;
   font-weight: bold;
 `
 
