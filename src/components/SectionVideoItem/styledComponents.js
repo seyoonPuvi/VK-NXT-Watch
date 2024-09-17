@@ -52,6 +52,7 @@ export const ViewsInfoContainer = styled.div`
 
   @media (max-width: 576px) {
     display: flex;
+    flex-direction:row;
     align-items: center;
     column-gap: 1.5rem;
   }
