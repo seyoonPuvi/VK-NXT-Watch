@@ -7,16 +7,21 @@ export const Container = styled.div`
   min-height: 100vh;
   background-color: ${props => (props.darkTheme ? '#181818' : '#f9f9f9')};
   display: flex;
+  overflow: hidden; /* Prevent scrolling of the main container */
 `
 
 export const LeftContainer = styled.div`
-  max-width: 230px;
-  width: 30%;
+  width: 230px; /* Fixed width to avoid overlapping */
   color: white;
-  background-color: ${props => (props.darkTheme ? '#212121' : 'white ')};
-  flex-shrink: 0;
+  background-color: ${props => (props.darkTheme ? '#0f0f0f' : 'white')};
   padding: 2rem 0;
-  min-height: 100vh;
+  height: 90vh; /* Full height for fixed positioning */
+  position: fixed; /* Fix the container to the left */
+  top: 7rem;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   @media (max-width: 700px) {
     display: none;
@@ -24,15 +29,19 @@ export const LeftContainer = styled.div`
 `
 export const VideoDetailsContainer = styled.div`
   min-height: 100vh;
-  width: 100%;
   display: flex;
   flex-direction: column;
-  row-gap: 2rem;
-  padding: 2rem 3rem;
+  row-gap: 1.5rem;
+  width: calc(100% - 230px); /* Adjust width to avoid overlap */
+  margin-left: 230px; /* Offset the left container */
   background-color: ${props => (props.darkTheme ? '#181818' : '#f9f9f9')};
+  overflow-y: auto; /* Allow scrolling only on the right container */
+  margin-top: 7rem;
+  padding: 2rem 2rem;
 
   @media (max-width: 700px) {
-    padding: 2rem 1.5rem;
+    width: 100%;
+    margin-left: 0;
   }
 `
 
@@ -77,7 +86,7 @@ export const ViewsAndLikeContainer = styled.div`
 `
 
 export const ListContainer = styled.ul`
-  padding-inline-start: 0;
+  paddding-inline-start: 0;
   display: flex;
   align-items: center;
   column-gap: 1.5rem;
@@ -99,12 +108,12 @@ export const Name = styled.button`
     }
     return '#64748b'
   }}};
-  font-size:1.4rem;
-  font-weight:bold;
+    font-size:1.4rem;
+    font-weight:bold;
 
-  display:flex;
-  align-items:center;
-  column-gap:1rem;
+    display:flex;
+    align-items:center;
+    column-gap:1rem;
 
 `
 

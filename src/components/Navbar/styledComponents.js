@@ -1,10 +1,12 @@
 import {Link} from 'react-router-dom'
 import styled from 'styled-components'
-import {FaMoon} from 'react-icons/fa'
+import {FaMoon, FaFire} from 'react-icons/fa'
 import {GiHamburgerMenu} from 'react-icons/gi'
 import {FiLogOut} from 'react-icons/fi'
 import {BsBrightnessHigh} from 'react-icons/bs'
-import {IoMdClose} from 'react-icons/io'
+import {IoMdClose, IoMdHome} from 'react-icons/io'
+import {SiYoutubegaming} from 'react-icons/si'
+import {RiPlayListAddFill} from 'react-icons/ri'
 
 export const Container = styled.div`
   display: flex;
@@ -12,8 +14,10 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  background-color: ${props => (props.darkTheme ? '#212121' : 'white ')};
-  position: relative;
+  background-color: ${props => (props.darkTheme ? '#0f0f0f' : 'white ')};
+  position: fixed;
+  top: 0;
+  left: 0;
 `
 export const PopUpLink = styled(Link)`
   width: 100%;
@@ -243,4 +247,55 @@ export const ConfirmButton = styled(CancelButton)`
     background-color: white;
     color: darkblue;
   }
+`
+
+// bottom navbar
+
+export const BottomNavbarContainer = styled.ul`
+  padding-inline-start: 0;
+  display: flex;
+  justify-content: space-evenly;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: ${props => (props.darkTheme ? '#0f0f0f' : 'white ')};
+  padding: 1rem 0;
+  width: 100%;
+
+  @media (min-width: 700px) {
+    display: none;
+  }
+`
+
+export const BottomNavItems = styled.button`
+  background-color: #e2e8f0;
+  padding: 1rem;
+  border: none;
+  outline: none;
+  text-align: center;
+  border-radius: 60%;
+`
+
+export const BottomHomeIcon = styled(IoMdHome)`
+  font-size: 2rem;
+  color: red;
+  font-weight: bold;
+`
+
+export const BottomTrendingIcon = styled(FaFire)`
+  font-size: 2rem;
+  color: red;
+  font-weight: bold;
+`
+
+export const BottomGamingIcon = styled(SiYoutubegaming)`
+  font-size: 2rem;
+  color: red;
+  font-weight: bold;
+`
+
+export const BottomSavedIcon = styled(RiPlayListAddFill)`
+  font-size: 2rem;
+  color: red;
+  font-weight: bold;
 `

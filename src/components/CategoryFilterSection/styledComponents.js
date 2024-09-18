@@ -4,15 +4,6 @@ import {FaFire} from 'react-icons/fa'
 import {SiYoutubegaming} from 'react-icons/si'
 import {RiPlayListAddFill} from 'react-icons/ri'
 
-export const Container = styled.div`
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding-top: 1rem;
-`
-
 export const CategoryList = styled.ul`
   padding-inline-start: 0;
   display: flex;
@@ -25,7 +16,6 @@ export const ListItem = styled.li`
   display: flex;
   column-gap: 2rem;
   align-items: center;
-  width: 100%;
 
   background-color: ${props => {
     if (props.activeFilter && props.darkTheme) {
@@ -98,7 +88,7 @@ export const SavedIcon = styled(RiPlayListAddFill)`
 export const CategoryText = styled.p`
   color: ${props => (props.darkTheme ? 'white' : 'black')};
   font-size: 1.6rem;
-  font-weight: 400;
+  font-weight: bold;
 `
 
 // contact us container

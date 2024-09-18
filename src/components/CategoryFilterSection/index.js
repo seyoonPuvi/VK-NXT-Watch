@@ -1,7 +1,6 @@
 import {Link} from 'react-router-dom'
 import ThemeContext from '../../context/ThemeContext'
 import {
-  Container,
   CategoryList,
   CategoryText,
   ListItem,
@@ -112,10 +111,10 @@ const CategoryFilterSection = () => (
       )
 
       return (
-        <Container>
+        <>
           {onRenderCategoryList()}
           {onRenderContactUsContainer()}
-        </Container>
+        </>
       )
     }}
   </ThemeContext.Consumer>
