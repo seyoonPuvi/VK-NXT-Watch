@@ -83,6 +83,7 @@ class LoginForm extends Component {
           onChange={this.onChangeUsername}
           value={usernameValue}
           darkTheme={darkTheme}
+          placeholder = "username : rahul"
         />
       </InputContainer>
     )
@@ -102,6 +103,7 @@ class LoginForm extends Component {
           onChange={this.onChangePassword}
           value={passwordValue}
           darkTheme={darkTheme}
+          placeholder='password :rahul@2021'
         />
       </InputContainer>
     )
