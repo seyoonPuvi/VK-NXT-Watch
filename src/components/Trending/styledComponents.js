@@ -2,19 +2,30 @@ import styled from 'styled-components'
 import {FaFire} from 'react-icons/fa'
 
 export const Container = styled.div`
-  display: flex;
-  background-color: ${props => (props.darkTheme ? '#0f0f0f' : '#f9f9f9')};
   min-height: 100vh;
+  background-color: ${props => (props.darkTheme ? '#181818' : '#f9f9f9')};
+  display: flex;
+  overflow: hidden; /* Prevent scrolling of the main container */
 `
 
 export const RightContainer = styled.div`
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: calc(100% - 230px); /* Adjust width to avoid overlap */
+  margin-left: 230px; /* Offset the left container */
+  background-color: ${props => (props.darkTheme ? '#181818' : '#f9f9f9')};
+  overflow-y: auto; /* Allow scrolling only on the right container */
+  margin-top: 7rem;
+
+  @media (max-width: 700px) {
+    width: 100%;
+    margin-left: 0;
+  }
 `
 
 export const SectionContainer = styled.div`
-  background-color: ${props => (props.darkTheme ? '#181818' : '#e2e8f0')};
+  background-color: ${props => (props.darkTheme ? '#212121' : '#e2e8f0')};
   padding: 2rem 2rem;
   display: flex;
   column-gap: 1.5rem;

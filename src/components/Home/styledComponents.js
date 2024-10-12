@@ -7,16 +7,21 @@ export const Container = styled.div`
   min-height: 100vh;
   background-color: ${props => (props.darkTheme ? '#181818' : '#f9f9f9')};
   display: flex;
+  overflow: hidden; /* Prevent scrolling of the main container */
 `
 
 export const LeftContainer = styled.div`
-  max-width: 230px;
-  width: 30%;
+  width: 230px; /* Fixed width to avoid overlapping */
   color: white;
-  background-color: ${props => (props.darkTheme ? '#212121' : 'white')};
-  flex-shrink: 0;
+  background-color: ${props => (props.darkTheme ? '#0f0f0f' : 'white')};
   padding: 2rem 0;
-  min-height: 100vh;
+  height: 90vh; /* Full height for fixed positioning */
+  position: fixed; /* Fix the container to the left */
+  top: 7rem;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   @media (max-width: 700px) {
     display: none;
@@ -27,8 +32,16 @@ export const RightContainer = styled.div`
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: calc(100% - 230px); /* Adjust width to avoid overlap */
+  margin-left: 230px; /* Offset the left container */
   background-color: ${props => (props.darkTheme ? '#181818' : '#f9f9f9')};
+  overflow-y: auto; /* Allow scrolling only on the right container */
+  margin-top: 7rem;
+
+  @media (max-width: 700px) {
+    width: 100%;
+    margin-left: 0;
+  }
 `
 
 export const BannerContainer = styled.div`
@@ -65,8 +78,6 @@ export const SubHeading = styled.p`
   font-size: 2rem;
   font-weight: bold;
   color: #424242;
-  font-family: Roboto;
-
   @media (max-width: 1100px) {
     width: 80%;
   }

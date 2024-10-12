@@ -13,31 +13,23 @@ import {
   ProfileImage,
   LogoutButton,
   LogoutIcon,
-  HamburgerMenu,
   StyledMoonIcon,
   StyledSunIcon,
   ListItem,
-  PopUpContent,
-  FilterContainer,
-  PopUpListItem,
   PopUpButton,
-  CloseIcon,
-  PopUpLink,
   LogoutPopUpContent,
   Heading,
   ButtonContainer,
   CancelButton,
   ConfirmButton,
   LogoutPopUpContainer,
+  BottomNavbarContainer,
+  BottomNavItems,
+  BottomHomeIcon,
+  BottomTrendingIcon,
+  BottomGamingIcon,
+  BottomSavedIcon,
 } from './styledComponents'
-
-import {
-  CategoryText,
-  HomeIcon,
-  TrendIcon,
-  GamingIcon,
-  SavedIcon,
-} from '../CategoryFilterSection/styledComponents'
 
 const Navbar = props => {
   const onClickLogout = () => {
@@ -49,117 +41,10 @@ const Navbar = props => {
   return (
     <ThemeContext.Consumer>
       {value => {
-        const {
-          isDarkTheme,
-          toggleTheme,
-          activeCategoryFilter,
-          updateCategory,
-        } = value
+        const {isDarkTheme, toggleTheme} = value
         const themeImageUrl = isDarkTheme
           ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png'
           : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png'
-
-        const overlayStyles = {
-          backgroundColor: `${isDarkTheme ? '#212121' : 'white '}`,
-        }
-
-        const onRenderPopUpMenu = () => (
-          <Popup
-            modal
-            trigger={
-              <PopUpButton type="button" aria-label="trigger">
-                <HamburgerMenu darkTheme={isDarkTheme} />
-              </PopUpButton>
-            }
-            overlayStyle={overlayStyles}
-          >
-            {close => (
-              <>
-                <PopUpContent>
-                  <PopUpButton
-                    type="button"
-                    aria-label="trigger"
-                    onClick={() => close()}
-                  >
-                    <CloseIcon darkTheme={isDarkTheme} />
-                  </PopUpButton>
-
-                  <PopUpLink to="/">
-                    <PopUpListItem
-                      activeFilter={activeCategoryFilter === 'home'}
-                      darkTheme={isDarkTheme}
-                      onClick={() => updateCategory('home')}
-                    >
-                      <FilterContainer>
-                        <HomeIcon
-                          darkTheme={isDarkTheme}
-                          activeFilter={activeCategoryFilter === 'home'}
-                        />
-                        <CategoryText darkTheme={isDarkTheme}>
-                          Home
-                        </CategoryText>
-                      </FilterContainer>
-                    </PopUpListItem>
-                  </PopUpLink>
-
-                  <PopUpLink to="/trending">
-                    <PopUpListItem
-                      activeFilter={activeCategoryFilter === 'trending'}
-                      darkTheme={isDarkTheme}
-                      onClick={() => updateCategory('trending')}
-                    >
-                      <FilterContainer>
-                        <TrendIcon
-                          darkTheme={isDarkTheme}
-                          activeFilter={activeCategoryFilter === 'trending'}
-                        />
-                        <CategoryText darkTheme={isDarkTheme}>
-                          Trending
-                        </CategoryText>
-                      </FilterContainer>
-                    </PopUpListItem>
-                  </PopUpLink>
-
-                  <PopUpLink to="/gaming">
-                    <PopUpListItem
-                      activeFilter={activeCategoryFilter === 'gaming'}
-                      darkTheme={isDarkTheme}
-                      onClick={() => updateCategory('gaming')}
-                    >
-                      <FilterContainer>
-                        <GamingIcon
-                          darkTheme={isDarkTheme}
-                          activeFilter={activeCategoryFilter === 'gaming'}
-                        />
-                        <CategoryText darkTheme={isDarkTheme}>
-                          Gaming
-                        </CategoryText>
-                      </FilterContainer>
-                    </PopUpListItem>
-                  </PopUpLink>
-
-                  <PopUpLink to="/saved-videos">
-                    <PopUpListItem
-                      activeFilter={activeCategoryFilter === 'saved'}
-                      darkTheme={isDarkTheme}
-                      onClick={() => updateCategory('saved')}
-                    >
-                      <FilterContainer>
-                        <SavedIcon
-                          darkTheme={isDarkTheme}
-                          activeFilter={activeCategoryFilter === 'saved'}
-                        />
-                        <CategoryText darkTheme={isDarkTheme}>
-                          Saved videos
-                        </CategoryText>
-                      </FilterContainer>
-                    </PopUpListItem>
-                  </PopUpLink>
-                </PopUpContent>
-              </>
-            )}
-          </Popup>
-        )
 
         const onRenderLogoutPopUp = () => {
           const LogoutoverlayStyles = {
@@ -262,7 +147,12 @@ const Navbar = props => {
                   </button>
                 )}
               </ListItem>
-              <ListItem>{onRenderPopUpMenu()}</ListItem>
+              <ListItem>
+                <ProfileImage
+                  src="https://assets.ccbp.in/frontend/react-js/nxt-watch-profile-img.png"
+                  alt="profile"
+                />
+              </ListItem>
 
               <ListItem>{onRenderMobileLogoutPopUp()}</ListItem>
             </RightContainer>
@@ -307,10 +197,37 @@ const Navbar = props => {
           </LargeNavbarContainer>
         )
 
+        const onRenderCategorySelectionNavbar = () => (
+          <BottomNavbarContainer darkTheme={isDarkTheme}>
+            <Link to="/">
+              <BottomNavItems>
+                <BottomHomeIcon />
+              </BottomNavItems>
+            </Link>
+            <Link to="/trending">
+              <BottomNavItems>
+                <BottomTrendingIcon />
+              </BottomNavItems>
+            </Link>
+
+            <Link to="/gaming">
+              <BottomNavItems>
+                <BottomGamingIcon />
+              </BottomNavItems>
+            </Link>
+            <Link to="/saved-videos">
+              <BottomNavItems>
+                <BottomSavedIcon />
+              </BottomNavItems>
+            </Link>
+          </BottomNavbarContainer>
+        )
+
         return (
           <Container darkTheme={isDarkTheme}>
             {onRenderLargeNavbar()}
             {onRenderMobileNavbar()}
+            {onRenderCategorySelectionNavbar()}
           </Container>
         )
       }}
